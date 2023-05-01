@@ -8,6 +8,7 @@ defmodule Noht.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      {Plug.Cowboy, scheme: :http, plug: Noht.Router, options: [port: 9200]}
       # Starts a worker by calling: Noht.Worker.start_link(arg)
       # {Noht.Worker, arg}
     ]
